@@ -13,7 +13,7 @@
 Add Signature in report sale invoice and Delivery Slip
 """,
     'website': 'https://tintonajisadewo.github.io/',
-    'images': 'static/description/__manifest__.png',
+    'images': ['static/description/__manifest__.png',],
     'depends': ['sale', ],
     'data': [
         'report/smartone_report_sp_head.xml',
