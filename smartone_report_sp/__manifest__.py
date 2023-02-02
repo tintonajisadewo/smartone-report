@@ -8,7 +8,7 @@
     'version': '16.0.0',
     "license": "AGPL-3",
     'category': 'Report Invoice and Delivery Slip',
-    'price': '10',
+    'price': '15.0',
     'currency':'USD',
     'summary': """
         Add Signature in report sale invoice and Delivery Slip""",
