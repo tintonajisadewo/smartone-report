@@ -3,7 +3,7 @@
     <data noupdate="0">
 
         
-    <record id="paperformat_smartone_inv" model="report.paperformat">
+    <record id="paperformat_notnit_inv" model="report.paperformat">
         <field name="name">Custom Invoice</field>
             <field name="default" eval="True"/>
             <field name="format">custom</field>
@@ -20,31 +20,31 @@
             <field name="header_spacing">35</field>
             <field name="dpi">90</field>
     </record>
-    <record id="report_smartone_report_inv" model="ir.actions.report">
+    <record id="report_notnit_report_inv" model="ir.actions.report">
             <field name="name">Invoice Custom Report</field>
             <field name="model">account.move</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">smartone_report_sp.smartone_report_inv_report</field>
-            <field name="report_file">smartone_report_sp.report_smartone_report_inv_doc</field>
+            <field name="report_name">notnit_report_sp.notnit_report_inv_report</field>
+            <field name="report_file">notnit_report_sp.report_notnit_report_inv_doc</field>
             <field name="binding_model_id" ref="account.model_account_move" />
-            <field name="paperformat_id" ref="smartone_report_sp.paperformat_smartone_inv" />
+            <field name="paperformat_id" ref="notnit_report_sp.paperformat_notnit_inv" />
             <field name="binding_type">report</field>
         </record>
 
         <!--
         <report
-            id="report_smartone_report_so"
-            string="Sale Order smartone"
+            id="report_notnit_report_so"
+            string="Sale Order notnit"
             report_type="qweb-pdf"
             model="stock.picking"
-            file="smartone_report_so.smartone_report_so_head"
-            name="smartone_report_so.smartone_report_so_report"
+            file="notnit_report_so.notnit_report_so_head"
+            name="notnit_report_so.notnit_report_so_report"
         />
         -->
-        <template id="smartone_report_inv_report">
+        <template id="notnit_report_inv_report">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
-                    <t t-call="smartone_report_sp.report_smartone_report_inv_doc" t-lang="o.partner_id.lang"/>
+                    <t t-call="notnit_report_sp.report_notnit_report_inv_doc" t-lang="o.partner_id.lang"/>
                 </t>
             </t>
         </template>

@@ -3,7 +3,7 @@
 
 
 {
-    'name': 'smartone_report_sp',
+    'name': 'notnit_report_sp',
     'author': 'Tinton Aji Sadewo',
     'version': '16.0.0',
     "license": "AGPL-3",
@@ -19,10 +19,10 @@ Add Signature in report sale invoice and Delivery Slip
     'images': ['static/description/__manifest__.png',],
     'depends': ['sale', ],
     'data': [
-        'report/smartone_report_sp_head.xml',
-        'report/report_smartone_report_sp_doc.xml',
-        'report/smartone_report_inv_head.xml',
-        'report/report_smartone_report_inv_doc.xml',
+        'report/notnit_report_sp_head.xml',
+        'report/report_notnit_report_sp_doc.xml',
+        'report/notnit_report_inv_head.xml',
+        'report/report_notnit_report_inv_doc.xml',
         'report/report.xml',
 
     ],
