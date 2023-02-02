@@ -3,7 +3,7 @@
 
 
 {
-    'name': 'notnit_report_sp',
+    'name': 'Report Invoice and Delivery Slip Add Signature',
     'author': 'Tinton Aji Sadewo',
     'version': '16.0.0',
     "license": "AGPL-3",
