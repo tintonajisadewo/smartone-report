@@ -5,7 +5,7 @@
 {
     'name': 'smartone_report_sp',
     'author': 'Tinton Aji Sadewo',
-    'version': '1.1',
+    'version': '16.0.0',
     'category': 'Report Invoice and Delivery Slip',
     'summary': """
         Add Signature in report sale invoice and Delivery Slip""",
@@ -13,6 +13,7 @@
 Add Signature in report sale invoice and Delivery Slip
 """,
     'website': 'https://tintonajisadewo.github.io/',
+    'images': 'static/description/__manifest__.png',
     'depends': ['sale', ],
     'data': [
         'report/smartone_report_sp_head.xml',
