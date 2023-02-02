@@ -6,6 +6,7 @@
     'name': 'smartone_report_sp',
     'author': 'Tinton Aji Sadewo',
     'version': '16.0.0',
+    "license": "AGPL-3",
     'category': 'Report Invoice and Delivery Slip',
     'summary': """
         Add Signature in report sale invoice and Delivery Slip""",
