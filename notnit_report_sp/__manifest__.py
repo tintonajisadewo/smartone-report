@@ -11,9 +11,9 @@
     'price': '15.0',
     'currency':'USD',
     'summary': """
-        Add Signature in report sale invoice and Delivery Slip""",
+       Report Invoice and Delivery Slip Add Signature""",
     'description': """
-Add Signature in report sale invoice and Delivery Slip
+Report Invoice and Delivery Slip Add Signature
 """,
     'website': 'https://tintonajisadewo.github.io/',
     'images': ['static/description/__manifest__.png',],
