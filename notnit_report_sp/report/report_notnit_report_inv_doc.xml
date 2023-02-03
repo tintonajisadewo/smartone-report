@@ -24,9 +24,9 @@
                     <table class="table table-sm table-borderless mt-2" name="invoice_line_table">
                         <thead style=" border-bottom: 2px solid black;text-right">
                             <tr>
-                                <td class="col-12" style="max-width: 90px;" colspan="2">
+                                <td class="col-12" style="max-width: 350px;" colspan="2">
                                     <!-- <img class="img" src="/sat_report_so/static/src/img/logo.jpg" style="max-width: 90px;" alt="Logo" /> -->
-                                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-width: 90px;" alt="Logo"/>
+                                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-width: 350px;" alt="Logo"/>
                                 </td>
                             </tr>
                         </thead>
