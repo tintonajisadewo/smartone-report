@@ -5,18 +5,7 @@
     <template id="report_notnit_report_sp_doc">
        <t t-call="web.external_layout">
             <t t-set="o" t-value="o.with_context(lang='id')" />
-            <!-- <div class="row">
-                <div class="col-1">
-                    <img class="img" src="/notnit_report_so/static/src/img/logo.png" style="max-width: 90px;" alt="Logo" />
-                </div>
-                <div class="col-11" style="color: #1C3364;">
-                    <h1 style="font-size: 2em; margin: 0; font-weight: bold;">PT. SOLO ABADI TEKNIK</h1>
-                    <p style="margin: 0;">Jl. Solo-Semarang Km. 18, Nglarangan, Teras, Boyolali 7372</p>
-                    <p style="margin: 0;">Phone (0276)3289925 Whatsapp 085881999999</p>
-                    <p style="margin: 0;">e-mail soloabaditeknik.pt@gmail.com</p>
-                </div>
-            </div> -->
-            <!---->
+            
             <div style="margin-top: -2em;">
                 <div class="page">
             
@@ -32,8 +21,8 @@
                         
                     </table>
                      <table class="table table-sm table-borderless mt-2" name="invoice_page_table">
-                        <thead style="text-right">
-                            <div class="col-6 text-right" style="font:13px lucida-console,sans-serif !important;">
+                        <thead style="text-left">
+                            <div class="col-6 text-left" style="font:13px lucida-console,sans-serif !important;">
                                 <span t-field="res_company.partner_id" style=" font-weight: bold;"/>
                                 <br/>
                                 <span t-field="res_company.partner_id.street"/>

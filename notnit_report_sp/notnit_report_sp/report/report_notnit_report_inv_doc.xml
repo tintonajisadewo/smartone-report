@@ -6,18 +6,7 @@
                
        <t t-call="web.external_layout">
             <t t-set="o" t-value="o.with_context(lang='id')" />
-            <!-- <div class="row">
-                <div class="col-1">
-                    <img class="img" src="/notnit_report_so/static/src/img/logo.png" style="max-width: 90px;" alt="Logo" />
-                </div>
-                <div class="col-11" style="color: #1C3364;">
-                    <h1 style="font-size: 2em; margin: 0; font-weight: bold;">PT. SOLO ABADI TEKNIK</h1>
-                    <p style="margin: 0;">Jl. Solo-Semarang Km. 18, Nglarangan, Teras, Boyolali 7372</p>
-                    <p style="margin: 0;">Phone (0276)3289925 Whatsapp 085881999999</p>
-                    <p style="margin: 0;">e-mail soloabaditeknik.pt@gmail.com</p>
-                </div>
-            </div> -->
-            <!---->
+            
             <div style="margin-top: -2em;">
                 <div class="page">
             
@@ -26,15 +15,15 @@
                             <tr>
                                 <td class="col-12" style="max-width: 350px;" colspan="2">
                                     <!-- <img class="img" src="/sat_report_so/static/src/img/logo.jpg" style="max-width: 90px;" alt="Logo" /> -->
-                                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-width: 350px;" alt="Logo"/>
+                                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-width: 90px;" alt="Logo"/>
                                 </td>
                             </tr>
                         </thead>
                         
                     </table>
                      <table class="table table-sm table-borderless mt-2" name="invoice_page_table">
-                        <thead style="text-right">
-                            <div class="col-6 text-right" style="font:13px lucida-console,sans-serif !important;">
+                        <thead style="text-left">
+                            <div class="col-6 text-left" style="font:13px lucida-console,sans-serif !important;">
                                 <span t-field="res_company.partner_id" style=" font-weight: bold;"/>
                                 <br/>
                                 <span t-field="res_company.partner_id.street"/>
@@ -59,7 +48,7 @@
                         <div class="col-6">
                         </div>
                         
-                    <div class="col-6" name="div_incoming_address">
+                    <div class="col-6" name="div_incoming_address" style="text-left">
                         <t t-if="o.partner_shipping_id and (o.partner_shipping_id != o.partner_id)">
 
                             <t t-set="information_block">
@@ -223,7 +212,7 @@
                                 <table class="table table-sm table-borderless" style="page-break-inside: avoid;">
 
                                     <!--Tax totals-->
-                                    <t t-set="tax_totals" t-value="o.tax_totals"/>
+                                    <t t-set="tax_totals" t-value="json.loads(o.tax_totals_json)"/>
                                     <t t-call="account.document_tax_totals"/>
 
                                     <!--Payments-->
@@ -258,36 +247,9 @@
                     <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference" name="payment_communication" class="mt-4">
                         Please use the following communication for your payment : <b><span t-field="o.payment_reference"/></b>
                     </p>
-                    <t t-set="payment_term_details" t-value="o.payment_term_details"/>
-                    <div t-field="o.invoice_payment_term_id.note" name="payment_term"/>
-                    <t t-if="o.invoice_payment_term_id.display_on_invoice and payment_term_details">
-                        <div t-if='o.show_payment_term_details' id="total_payment_term_details_table" class="row">
-                            <div t-attf-class="#{'col-7' if report_type != 'html' else 'col-sm-7 col-md-6'} mt-2 mb-2">
-                                <table class="table table-sm" style="page-break-inside: avoid;">
-                                    <th class="border-black text-start">
-                                        Due Date
-                                    </th>
-                                    <th class="border-black text-end">
-                                        Amount Due
-                                    </th>
-                                    <th t-if="o.show_discount_details" class="border-black text-end">
-                                        Discount
-                                    </th>
-                                    <t t-foreach="payment_term_details" t-as="term">
-                                        <tr>
-                                            <td t-esc="term.get('date')" class="text-start"/>
-                                            <td t-options='{"widget": "monetary", "display_currency": o.currency_id}' t-esc="term.get('amount')" class="text-end"/>
-                                            <td t-if="term.get('discount_date')" class="text-end">
-                                                <span t-options='{"widget": "monetary", "display_currency": o.currency_id}'
-                                                      t-esc="term.get('discount_amount_currency')"/> if paid before
-                                                <span t-esc="term.get('discount_date')"/>
-                                            </td>
-                                        </tr>
-                                    </t>
-                                </table>
-                            </div>
-                        </div>
-                    </t>
+                    <p t-if="o.invoice_payment_term_id" name="payment_term">
+                        <span t-field="o.invoice_payment_term_id.note"/>
+                    </p>
                     <div t-if="not is_html_empty(o.narration)" name="comment">
                         <span t-field="o.narration"/>
                     </div>
@@ -298,12 +260,13 @@
                         <strong>Incoterm: </strong><span t-field="o.invoice_incoterm_id.code"/> - <span t-field="o.invoice_incoterm_id.name"/>
                     </p>
                     <div id="qrcode" t-if="o.display_qr_code and o.amount_residual > 0">
-                        <t t-set="qr_code_url" t-value="o._generate_qr_code()"/>
-                        <p t-if="qr_code_url">
+                        <p t-if="qr_code_urls.get(o.id)">
                             <strong class="text-center">Scan me with your banking app.</strong><br/><br/>
-                            <img class="border border-dark rounded" t-att-src="qr_code_url"/>
+                            <img class="border border-dark rounded" t-att-src="qr_code_urls[o.id]"/>
                         </p>
                     </div>
+                
+                    
                      <table class="signature">
                     <tr style="text-align:center;height:100px;">
                         <td style="width:600px">DISIAPKAN</td>
