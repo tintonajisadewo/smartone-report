@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     'category': 'Report QWEB Invoice and Delivery Slip',
     'price': '15.0',
-    'currency':'USD',
+    'currency': 'USD',
     'summary': """
        Report QWEB Invoice and Delivery Slip Add Signature""",
     'description': """
@@ -17,7 +17,7 @@ Report QWEB Invoice and Delivery Slip Add Signature
 """,
     'website': 'https://tintonajisadewo.github.io/',
     'images': ['static/description/__manifest__.png',],
-    'depends': ['sale','stock'],
+    'depends': ['sale', 'stock'],
     'data': [
         'report/notnit_report_sp_head.xml',
         'report/report_notnit_report_sp_doc.xml',
