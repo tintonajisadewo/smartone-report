@@ -17,7 +17,7 @@ Report QWEB Invoice and Delivery Slip Add Signature
 """,
     'website': 'https://tintonajisadewo.github.io/',
     'images': ['static/description/__manifest__.png', ],
-    'depends': ['sale', ],
+    'depends': ['sale','stock' ],
     'data': [
         'report/notnit_report_sp_head.xml',
         'report/report_notnit_report_sp_doc.xml',
