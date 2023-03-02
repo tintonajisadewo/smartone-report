@@ -1,54 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data noupdate="0">
-
-        
-    <record id="paperformat_notnit_inv" model="report.paperformat">
-        <field name="name">Custom Invoice</field>
-            <field name="default" eval="True"/>
-            <field name="format">custom</field>
-            <field name="page_height">297</field>
-            <field name="page_width">210</field>
-            <!-- <field name="page_height">215</field>
-            <field name="page_width">140</field> -->
-            <field name="orientation">Portrait</field>
-            <field name="margin_top">2.00</field>
-            <field name="margin_bottom">15.00</field>
-            <field name="margin_left">5.0</field>
-            <field name="margin_right">5.0</field>
-            <field name="header_line" eval="False" />
-            <field name="header_spacing">35</field>
-            <field name="dpi">90</field>
-    </record>
-    <record id="report_notnit_report_inv" model="ir.actions.report">
-            <field name="name">Invoice Custom Report</field>
-            <field name="model">account.move</field>
-            <field name="report_type">qweb-pdf</field>
-            <field name="report_name">notnit_report_sp.notnit_report_inv_report</field>
-            <field name="report_file">notnit_report_sp.report_notnit_report_inv_doc</field>
-            <field name="binding_model_id" ref="account.model_account_move" />
-            <field name="paperformat_id" ref="notnit_report_sp.paperformat_notnit_inv" />
-            <field name="binding_type">report</field>
-        </record>
-
-        <!--
         <report
-            id="report_notnit_report_so"
-            string="Sale Order notnit"
+            id="notnit_report_inv"
+            string="Invoice Custom 14"
             report_type="qweb-pdf"
-            model="stock.picking"
-            file="notnit_report_so.notnit_report_so_head"
-            name="notnit_report_so.notnit_report_so_report"
+            model="account.move"
+            file="notnit_report_sp.notnit_report_inv_head"
+            name="notnit_report_sp.deu_report_inv_report"
+            print_report_name="'Purchase Order' + str(object.name) + '_' + str(object.id)"
+
         />
-        -->
-        <template id="notnit_report_inv_report">
+        <template id="deu_report_inv_report">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
-                    <t t-call="notnit_report_sp.report_notnit_report_inv_doc" t-lang="o.partner_id.lang"/>
+                    <t t-call="notnit_report_sp.report_deu_report_inv_doc" t-lang="o.partner_id.lang"/>
                 </t>
             </t>
         </template>
-
-        
     </data>
 </odoo>
